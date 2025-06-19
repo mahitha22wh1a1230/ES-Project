@@ -1,0 +1,19 @@
+const int ledPin = 13;
+char incomingChar;
+
+void setup() {
+  Serial.begin(9600);
+  pinMode(ledPin, OUTPUT);
+  digitalWrite(ledPin, LOW);
+}
+
+void loop() {
+  if (Serial.available()) {
+    incomingChar = Serial.read();
+    if (incomingChar == 'R') {
+      digitalWrite(ledPin, HIGH);
+    } else if (incomingChar == 'O') {
+      digitalWrite(ledPin, LOW);
+    }
+  }
+}
